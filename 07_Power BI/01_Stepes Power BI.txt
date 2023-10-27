@@ -1,0 +1,4 @@
+1)Power BI report - Link/Add data from Azure SQL to PowerBI - create an PowerBI Dashboard
+
+2)Testing - Add row in Onpremise and Add Trigger in Azure data factory - and Monitor the Pipline - 
+  Refresh PowerBI Dashboard and see the changes

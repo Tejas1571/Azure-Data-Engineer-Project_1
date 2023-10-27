@@ -1,0 +1,3 @@
+1)Create 3 Containers in Storage Account bronze-layer, silver-layer, glod-layer
+
+2)Give access to ADF and Synapse - Access Control - Role Assignment

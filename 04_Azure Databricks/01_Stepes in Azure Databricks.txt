@@ -1,0 +1,9 @@
+1) Databricks + ADF  --  linked service for adf to databricks - create access token in data bricks - add access token to key vault -
+   Put access token in ADF linked service using key vault
+
+2) Databricks to storage account connection - Enable credential passthrough for user level data access option(databricks will use owners(Tejas kale) credentials to access datalake)
+					      
+3) Create databricks NoteBook for connection - Connection to ADLS.py
+
+4) Create notebook for transformation - create cluster(compute)(enable credential passthrough for user level data access) - add cluster in notebokk
+   Add notebooksto ADF(bronze to silver)  --  (silver to gold) - write command(Format - Delta) -  to write data to Silver - to Gold

@@ -1,0 +1,30 @@
+--all database tables with schema = SalesLT
+select t.name as TableName, 
+s.name as SchemaName 
+from sys.tables as t inner join sys.schemas as s on t.schema_id = s.schema_id
+where s.name = 'SalesLT';
+
+
+
+SET IDENTITY_INSERT [AdventureWorksLT2017].[SalesLT].[Customer] ON;
+  INSERT INTO [AdventureWorksLT2017].[SalesLT].[Customer]
+  ([CustomerID]
+      ,[NameStyle]
+      ,[Title]
+      ,[FirstName]
+      ,[MiddleName]
+      ,[LastName]
+      ,[Suffix]
+      ,[CompanyName]
+      ,[SalesPerson]
+      ,[EmailAddress]
+      ,[Phone]
+      ,[PasswordHash]
+      ,[PasswordSalt]
+      ,[rowguid]
+      ,[ModifiedDate])
+	  VALUES
+	  (30119,0,'Mr.', 'Alex','lok', 'biber','Jr.','resale.in','adventure-works\jmt0','Alex12@adventure-works.com','684-555-0134','YPdtRdvqeAhj6wyxEsFdshBDNXxkCXn+CRgbvJItknw=','YTNH5Rw=','E552F657-A9AF-4A7D-A645-C429D6E02491','2005-08-01 00:00:00.000'),
+	  (301110,0,'Mrs.', 'Tina','wha', 'bibmt','Jr.','resal','adventure-works\jkt0','ATina2@adventure-works.com','684-585-0194','Qa3aMCxNbVLGrc0b99KsbQqiVgwYDfHcsK9GZSUxcTM=','jpHKbqE=','CDB6698D-2FF1-4FBA-8F22-60AD1D11DABD','2005-08-01 00:00:00.000')
+
+	  SET IDENTITY_INSERT [AdventureWorksLT2017].[SalesLT].[Customer] OFF;

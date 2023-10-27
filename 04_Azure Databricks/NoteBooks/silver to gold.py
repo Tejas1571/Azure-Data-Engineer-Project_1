@@ -1,0 +1,36 @@
+# Databricks notebook source
+# MAGIC %md
+# MAGIC #silver to gold
+
+# COMMAND ----------
+
+table_name2 = []
+for i in dbutils.fs.ls("/mnt/silver-layer/SalesLT/"):
+    table_name2.append(i.name.split('/')[0])
+
+# COMMAND ----------
+
+table_name2
+
+# COMMAND ----------
+
+# from pyspark.sql import SparkSession
+# from pyspark.sql.functions import col, regexp_replace
+for name in table_name2:
+    path = "/mnt/silver-layer/SalesLT/" + name
+    df = spark.read.format('delta').load(path)
+    column_names = df.columns
+
+    for col_old in column_names:
+        new_col = "".join(["_" + char if char.isupper() and not col_old[i - 1].isupper() else char for i, char in enumerate(col_old)]).lstrip("_")
+        df = df.withColumnRenamed(col_old, new_col)
+    output_path = '/mnt/gold-layer/SalesLT/' + name + '/'
+    df.write.format('delta').mode('overwrite').save(output_path)
+
+# COMMAND ----------
+
+display(df)
+
+# COMMAND ----------
+
+

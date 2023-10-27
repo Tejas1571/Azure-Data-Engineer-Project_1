@@ -1,0 +1,8 @@
+1) create free Azure portal - create resource - Azure Key Vault(vault access policy)
+ 
+2) Create Secret - Add Password - KeepitBold- in ketvauly secrete to use it in Linked Service
+
+3) Add your ADF Account/Synapse to keyvault access policies.- for access to ADF/ Synapse
+
+3) Add databricks Token as secret in Key Vault - to use it in Linked Service
+  

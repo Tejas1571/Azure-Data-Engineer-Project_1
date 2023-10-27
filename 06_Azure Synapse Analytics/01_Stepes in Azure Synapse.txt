@@ -1,0 +1,11 @@
+1) Data lake --> to --> serverless sql pool Views(Azure Database)
+   
+   Linked service to (serverlesssqlpool) - select (Azure SQL Database) as Dataset - select - Enter manually in linked service - copy domain name of severless pool from synapse properties
+   Authentication type - System Assigned Managed Identity
+
+2) Create dataset(Synapse+ADLS) - linked service to your data lake(storage Account)- Use Binary Option(as reading only names of tables) - 
+   Use the default link service(Data lake to Synapse)
+
+3) Getmetadata activity - For-Each Actiivity -
+   Add stored_procedure in (For-Each) Synapse Pipline to Create View in Serveless Database
+   Data changes in gold-layer will update automatically in Azuer Databaase views

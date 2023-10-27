@@ -1,0 +1,3 @@
+CREATE LOGIN mrtej WITH PASSWORD = 'KeepitBold';
+
+CREATE USER mrtej FOR LOGIN mrtej;

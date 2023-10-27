@@ -1,0 +1,4 @@
+1) Azuer Active directory - Create security group - add owner and Members - 
+
+2) In Access control(IAM) in resource group - add contributer role to the Security Group 
+   Now the member in security groups have the access of Resource Group

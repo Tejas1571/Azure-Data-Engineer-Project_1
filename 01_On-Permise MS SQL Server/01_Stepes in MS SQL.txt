@@ -1,0 +1,10 @@
+1)Install  MS SQL Sever and SSMS at on_primese device - 
+	MS SQL Server - https://www.microsoft.com/en-us/download/details.aspx?id=55994
+	SSMS - https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16
+        Add/restore sample databse (AdventureWorksLT2017) to SSMS
+        create SQL Authentication [user = sa(Default User)(system User), Password = KeepitBold] 
+        then grant read Access of database(AdventureWorksLT2017) to user (sa) in onprem ms SQL server
+
+
+2)After Severless pool in synapse created - 
+  Insert two new rows in SQL onpremise Database Table - Customer to test the pipline

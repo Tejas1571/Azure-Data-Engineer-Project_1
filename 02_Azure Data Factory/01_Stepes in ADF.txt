@@ -1,0 +1,20 @@
+1)create free Azure portal - create a resource group - add resources - 1)Storage account(ADLS2) 2)ADF 3)Azure Key Vault(vault access policy) 4)Azure Synapse Analytics 5)Databricks
+
+2)connect on premise sql to Azure data factory by using Self-hosted integration rumtime, install self integration runtime(compute infrastructure) on your onpremise SQL device - 
+  ADF - Manage - integration runtime - add self integration(name - onpremRuntime1) - Express setup - downlod it into onpremise PC. - run the application(it will dowmload Self IR)
+  create a pipline - add source and sink in pipline - 
+  1)create dataset and linked service for onpremSQL -and- ADF(Storage account),, 
+  2)create dataset and linked service for keyvault -and- ADF, to access secrets 
+    and add ADF in keyvault(Access policy)(permissions) 3) create dataset and linked service for ADF -and- storage account(store file in Parquet format - need java in selfhosted machine)
+    ADF - 1)Lookup activity - 1)dataset1 and linked sevice to onpemsql 2)query - lookup Saved query 
+          2)For-Each Activity - lookup output to For-Each - @activity('Look for all tables in onpemSQL').output.value
+          3)Inside For-Each Activity - Put Copy Activity - Source Dataset and Linked Service - Sink Dataset and Linked Service
+            Select from For-Each - @{concat('select * from ',item().SchemaName, '.' ,item().TableName)}
+            Sink Parameters - @item().SchemaName and @item().TableName, path - @{concat(dataset().schemaname,'/',dataset().tablename)}
+            and File Name - @{concat(dataset().schemaname,'/',dataset().tablename)}
+
+
+3)Create Notebook in Databricks and Add them in ADF for Transformation 
+  1.(bronze to silver)  -  2.(silver to gold)
+
+4)Test The Pipline - Add Row in onpremise SQL and Add trigger in azure data factory - And monitor the pipline -See the changes in PowerBI
